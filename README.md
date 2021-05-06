@@ -7,7 +7,7 @@
 Explore US Bikeshare Data
 
 ### Description
-Describe what your project is about and what it does
+This project takes user's input and displays certain statistics of the bikeshare usage for the interested city
 
 ### Files used
 Include the files used
