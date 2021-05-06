@@ -1,3 +1,7 @@
+"""
+In this project, I built/define a few functions that the user can use to expore some statistics
+of the US bikeshare data from 3 large cityies in the USA 
+"""
 import time
 import pandas as pd
 import numpy as np
