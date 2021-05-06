@@ -1,3 +1,7 @@
+"""
+In this project, I built/define a few functions that the user can use to expore some statistics
+of the US bikeshare data from 3 large cityies in the USA 
+"""
 import time
 import pandas as pd
 import numpy as np
@@ -103,7 +107,7 @@ def station_stats(df):
     commendstaion = df['End Station'].mode()[0]      # display most commonly used end station
     df['stationcomb'] = df['Start Station'].str.cat(df['End Station'], sep=' -> ')
     commcomb = df['stationcomb'].mode()[0]           # display most frequent combination of start station and end station trip
-    
+
     print('\nThe most commonly used start station is: {}'.format(commststaion))
     print('\nThe most commonly used end station is: {}'.format(commendstaion))
     print('\nThe most commonly used start/end station combo is: {}'.format(commcomb))
@@ -118,7 +122,7 @@ def trip_duration_stats(df):
 
     dursum = round(df['Trip Duration'].sum()/3600,1)        # TO display total travel time in hours
     durmean = round(df['Trip Duration'].mean()/60,1)        # TO display mean travel time in minutes
-    
+
     print('The total travel time is: {} hours, and mean travel time is: {} minutes'.format(dursum,durmean))
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -130,7 +134,7 @@ def user_stats(df):
     start_time = time.time()
 
     typecount = pd.DataFrame(df['User Type'].value_counts())     # TO Display counts of user types
-    print('Count of each user type is: \n',typecount)  
+    print('Count of each user type is: \n',typecount)
 
     if city == 'washington':
         print('Washington doesn"t have user gender and birth year data')
@@ -138,7 +142,7 @@ def user_stats(df):
         gendercount = pd.DataFrame(df['Gender'].value_counts())        # TO Display counts of gender
         dobmin = int(df['Birth Year'].min())                           # TO DO: Display earliest
         dobmax = int(df['Birth Year'].max())                           # most recent, and most common year of birth
-        dobmode =int(df['Birth Year'].mode()[0])                         
+        dobmode =int(df['Birth Year'].mode()[0])
 
         print('Count of each genter type is: \n',gendercount)
         print('The oldest, youngest and most common year of birth are respectively {},{}, and {}'.format(dobmin,dobmax,dobmode))
@@ -146,7 +150,7 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-    
+
 def display_raw_data(df):
     showdata = input('Do you want to see the raw data (Y/N)?').lower()
 
@@ -159,7 +163,7 @@ def display_raw_data(df):
         n += 5
         showdata = input('Show anothter 5 rows (Y/N)?').lower()
 
-    
+
 def main():
     while True:
         city, month, day = get_filters()
