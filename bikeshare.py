@@ -30,7 +30,7 @@ def get_filters():
         city = city.lower()
 
     # TO DO: get user input for month (all, january, february, ... , june)
-    month =  input('From the following: [all, january, february... june], please type in the month you are interested in:')
+    month =  input('From the following: [all, january, february... june], please type in the month (or the month number) you are interested in:')
     if isinstance(month,int):
         month = months[month]
     else:
